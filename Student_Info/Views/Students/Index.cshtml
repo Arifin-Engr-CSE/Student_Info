@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Student_Info.Models.Student>
+
+@{ 
+    ViewData["Title"] = "Index";
+    int Sl = 0;
+}
+
+
+<h2 class="text-info text-center">Student Details</h2>
+
+<p class="text-right">
+    <a asp-action="Create" class="btn btn-outline-primary">Add New Student</a>
+</p>
+<table class="table table-bordered table-stripe d table-sm table-hover">
+    <thead class="bg-info text-dark">
+        <tr>
+            <th>SL#</th>
+            <th>@Html.DisplayNameFor(x => x.StudentName)</th>
+            <th>@Html.DisplayNameFor(x => x.Address)</th>
+            <th>@Html.DisplayNameFor(x => x.AddmissionDate)</th>
+            <th>Class</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            Sl++;
+            <tr>
+                <td>@Sl</td>
+                <td>@item.StudentName</td>
+                <td>@item.Address</td>
+                <td>@item.AddmissionDate.ToString("dd-MMM-yyyy")</td>
+                <td>@item.StudentClass.ClassName</td>
+            </tr>
+        
+        }
+    </tbody>
+</table>

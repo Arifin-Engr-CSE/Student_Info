@@ -1,0 +1,58 @@
+﻿@model Student_Info.Models.Student
+@{
+    ViewData["Title"] = "Create Page";
+}
+
+<h2 class="text-info text-center"> Add New Student</h2>
+<br />
+
+<div class="row mt-2">
+    <div class="col-md-4 offset-2">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+           
+
+            <div class="form-group row">
+                <label asp-for="StudentName" class=" col-sm-4 display-4 col-form-label"></label>
+                <div class="col-sm-8">
+                    <input asp-for="StudentName" class="form-control" />
+                </div>
+                <span asp-validation-for="StudentName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="Address" class=" col-sm-4 display-4 col-form-label"></label>
+                <div class="col-sm-8">
+                    <input asp-for="Address" class="form-control" />
+                </div>
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="AddmissionDate" class=" col-sm-4 display-4 col-form-label"></label>
+                <div class="col-sm-8">
+                    <input asp-for="AddmissionDate" class="form-control" />
+                </div>
+                <span asp-validation-for="AddmissionDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group row">
+                <label asp-for="StudentClassId" class="col-sm-4 display-4 col-form-label"></label>
+              
+                <div class="col-sm-8">
+                    <select asp-for="StudentClassId" class="form-control" asp-items="ViewBag.StudentClassId">
+
+                    <option value="">-----Select-----</option></select>
+                </div>
+                <span asp-validation-for="StudentClassId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+
+                <input type="submit" value="Save" class="btn btn-success" />
+
+            </div>
+        </form>
+    </div>
+</div>
