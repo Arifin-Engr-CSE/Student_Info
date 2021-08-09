@@ -11,6 +11,7 @@ namespace Student_Info.Controllers
 {
     public class HomeController : Controller
     {
+
         private readonly ILogger<HomeController> _logger;
 
 
