@@ -27,7 +27,7 @@ namespace Student_Info.Controllers
         }
 
         //Create
-        
+        [Authorize]
         public IActionResult Create()
         {
             ViewData["StudentClassId"] = new SelectList(_db.StudentClasses, "StudentClassId", "ClassName");
@@ -35,7 +35,7 @@ namespace Student_Info.Controllers
         }
 
         //Create
-        
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("StudentId", "StudentName", "Address", "AddmissionDate", "StudentClassId")] Student student)

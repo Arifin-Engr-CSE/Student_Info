@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Student_Info.Controllers
 {
-    
+    [Authorize]
     public class StudentClassesController : Controller
     {
         private readonly ApplicationDbContext _db;
@@ -20,21 +20,21 @@ namespace Student_Info.Controllers
             _db = db;
         }
 
-       
+       [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             return View(await _db.StudentClasses.ToListAsync());
         }
 
         //Create Class
-       
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
 
 
-        [Authorize(Roles = "Admin")]
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
 

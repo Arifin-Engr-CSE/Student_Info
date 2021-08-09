@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<Student_Info.Models.Student>
 
-@{ 
+@{
     ViewData["Title"] = "Index";
     int Sl = 0;
 }
@@ -8,9 +8,10 @@
 
 <h2 class="text-info text-center">Student Details</h2>
 
-<p class="text-right">
-    <a asp-action="Create" class="btn btn-outline-primary">Add New Student</a>
-</p>
+    <p class="text-right">
+        <a asp-action="Create" class="btn btn-outline-primary">Add New Student</a>
+    </p>
+
 <table class="table table-bordered table-stripe d table-sm table-hover">
     <thead class="bg-info text-dark">
         <tr>
@@ -32,7 +33,7 @@
                 <td>@item.AddmissionDate.ToString("dd-MMM-yyyy")</td>
                 <td>@item.StudentClass.ClassName</td>
             </tr>
-        
+
         }
     </tbody>
 </table>

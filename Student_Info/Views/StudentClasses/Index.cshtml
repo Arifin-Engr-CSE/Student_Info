@@ -1,13 +1,17 @@
 ﻿@model IEnumerable<Student_Info.Models.StudentClass>
-@{ 
+@{
     ViewData["Title"] = "Class Page";
     int sl = 0;
 }
 
 <h2 class="text-info text-center">All Class</h2>
-<p class="text-right">
-    <a asp-action="Create" class="btn btn-outline-primary">Add New Class</a>
-</p>
+@if (User.Identity.IsAuthenticated)
+{
+    <p class="text-right">
+        <a asp-action="Create" class="btn btn-outline-primary">Add New Class</a>
+    </p>
+}
+
 <table class="table table-bordered table-striped table-sm table-hover">
     <thead class="text-dark bg-info">
         <tr>
@@ -15,7 +19,7 @@
                 SL#
             </th>
             <th>
-                @Html.DisplayNameFor(x=>x.ClassName)
+                @Html.DisplayNameFor(x => x.ClassName)
             </th>
 
         </tr>
@@ -24,10 +28,10 @@
         @foreach (var item in Model)
         {
             sl++;
-        <tr>
-            <td>@sl</td>
-            <td>@item.ClassName</td>
-        </tr>
+            <tr>
+                <td>@sl</td>
+                <td>@item.ClassName</td>
+            </tr>
         }
     </tbody>
 

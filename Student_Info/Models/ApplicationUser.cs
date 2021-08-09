@@ -10,7 +10,7 @@ namespace Student_Info.Models
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public int UsernameChangeLimit { get; set; } = 10;
+        public int UsernameChangeLimit { get; set; }
         public byte[] ProfilePicture { get; set; }
     }
 }
